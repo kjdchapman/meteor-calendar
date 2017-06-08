@@ -1,0 +1,10 @@
++navBar
+h1 Book a feedback call
+p Welcome to feedback call booking. Select an expert to view their individual availability, or see all available call slots.
+a(href="{{pathFor 'professionalSelect'}}") View all available slots
+
+each mentor in mentors
+  with mentor
+    #mentor-box
+      +mentorProfile this
+      a($mentorLinkAttributes) View available slots

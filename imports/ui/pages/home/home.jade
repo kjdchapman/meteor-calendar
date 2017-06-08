@@ -1,1 +1,6 @@
 template(name="App_home")
+  h3 Who are you?
+  ul.role-list
+    li: a.role-link(href="{{pathFor 'professionalStart'}}") Professional
+    li: a.role-link(href="/mentor/") Mentor
+    li: a.role-link(href="/admin/") Mastered admin

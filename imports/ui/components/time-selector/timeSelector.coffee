@@ -1,0 +1,1 @@
+import './timeSelector.tpl.jade'

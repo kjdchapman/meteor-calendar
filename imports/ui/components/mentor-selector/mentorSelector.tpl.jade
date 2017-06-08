@@ -1,0 +1,7 @@
+select
+  option
+    | All mentors
+  each mentor in mentors
+    with mentor
+      option($optionAttributes)
+        = name

@@ -1,0 +1,1 @@
+import './navBar.tpl.jade'
