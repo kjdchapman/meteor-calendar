@@ -1,1 +1,22 @@
 @import "{}/imports/ui/stylesheets/not-found.less";
+
+.calendarSelector{
+  width: 60%;
+  height: 400px;
+}
+
+.day {
+  background-color: #cfe0e8;
+  width: 14.1%;
+  height: 10%;
+  display: inline-block;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+  &.selected {
+    background-color: #eaece5;
+  }
+  &.available {
+    background-color: #ff66a3;
+  }
+}
