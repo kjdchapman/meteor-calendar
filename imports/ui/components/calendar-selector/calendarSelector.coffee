@@ -35,8 +35,7 @@ class Availability
 
   select_day: (selected) ->
     _.each @days, (day) ->
-      day.selected = false
-      day.selected = true if selected is day
+      day.selected = day is selected
 
 Template.calendarSelector.onCreated ->
   @data.days = new ReactiveVar
@@ -62,6 +61,6 @@ Template.calendarSelector.helpers
 Template.calendarSelector.events
   'click .day': (event) ->
     availability = Template.instance().data.days.get()
-    availability.select_day(@.day)
-    Template.instance().data.selectedDay = @.day
+    availability.select_day(@day)
     Template.instance().data.days.set availability
+    Template.instance().data.selectedDay.set @day

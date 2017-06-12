@@ -2,8 +2,6 @@ import './availabilitySelector.tpl.jade'
 
 import { Template } from 'meteor/templating'
 
-# export selectedDay = new ReactiveVar
-
 Template.availabilitySelector.onCreated ->
   @data.selectedDay = new ReactiveVar
 
@@ -20,7 +18,3 @@ Template.availabilitySelector.helpers
         type: "button"
         value: "Select a day"
       }
-
-Template.availabilitySelector.events
-  'click #clickme ': (event) ->
-    console.log @
