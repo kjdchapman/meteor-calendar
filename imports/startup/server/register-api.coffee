@@ -1,3 +1,2 @@
-# Import the various methods and publications here
-import '../../api/examples/methods'
-import '../../api/examples/server/publications'
+import '../../api/slots/methods'
+import '../../api/slots/server/publications'

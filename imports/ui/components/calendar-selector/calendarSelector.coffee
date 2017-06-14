@@ -40,9 +40,9 @@ class Availability
 Template.calendarSelector.onCreated ->
   @data.days = new ReactiveVar
   availability = [
-    moment("2017-05-05")
-    moment("2017-06-16")
-    moment("2017-06-15")
+    moment.tz("2017-05-05T09", "Etc/UTC")
+    moment.tz("2017-06-16T08", "Etc/UTC")
+    moment.tz("2017-06-15T15", "Etc/UTC")
   ]
   @data.days.set new Availability availability
 

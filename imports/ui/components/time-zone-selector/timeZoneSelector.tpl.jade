@@ -1,5 +1,5 @@
-select
+select#zoneSelect
   each timeZone in timeZones
     with timeZone
       option($optionAttributes)
-        | Timezone: #{zoneName}
+        = timeZone
