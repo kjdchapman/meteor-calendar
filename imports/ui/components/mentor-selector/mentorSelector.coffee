@@ -4,7 +4,8 @@ import { Template } from 'meteor/templating'
 
 Template.mentorSelector.helpers
   optionAttributes: ->
-    selectedMentor = Template.instance().data.selectedMentor.get()
+    data = Template.instance().data
+    selectedMentor = data.selectedMentor.get()
     if selectedMentor is @_id
       { id: @_id, selected: true }
     else
@@ -12,5 +13,6 @@ Template.mentorSelector.helpers
 
 Template.mentorSelector.events
   'change #mentorSelect': (event) ->
-     @selectedMentor.set event.target.selectedOptions[0].id
+    newValue = parseInt(event.target.selectedOptions[0].id) || null
+    @selectedMentor.set newValue
 

@@ -4,20 +4,42 @@ import { Slots } from '../../../api/slots/slots'
 import { Template } from 'meteor/templating'
 
 Template.availabilitySelector.onCreated ->
+  @subscribe 'slots.available'
   @data.selectedDay = new ReactiveVar
   @data.selectedTimeZone = new ReactiveVar(do moment.tz.guess)
-  @subscribe 'slots.available'
-  console.log Slots.find().count()
+  @data.selectedMentor = new ReactiveVar(
+    parseInt(FlowRouter.getQueryParam "mentorId") || null
+  )
 
 Template.availabilitySelector.helpers
-  confirmAttributes: ->
-    if @selectedDay.get()
-      {
-        type: "button"
-        value: "Confirm and enter details"
-      }
+  slots: ->
+    selectedMentor = @selectedMentor.get()
+    if selectedMentor?
+      params = { "mentor.id": selectedMentor }
     else
+      params = {}
+    @slots = Slots.find params
+    @slots
+
+  mentors: ->
+    [
       {
-        type: "button"
-        value: "Select a day"
+        _id: 1
+        name: "Alice"
+        role: "Famous person"
+        bio: "Orem ipsum dolor sit amet, consectetur adipiscing elit"
       }
+      {
+        _id: 2
+        name: "Charlie"
+        role: "Famous person"
+        bio: "Orem ipsum dolor sit amet, consectetur adipiscing elit"
+      }
+      {
+        _id: 3
+        name: "Danielle"
+        role: "Famous person"
+        bio: "Orem ipsum dolor sit amet, consectetur adipiscing elit"
+      }
+    ]
+

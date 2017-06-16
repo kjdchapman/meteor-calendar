@@ -7,7 +7,7 @@ Meteor.methods
   'slots.insert': ({ dateTime, mentor, professional, available }) ->
     check dateTime, String
     check mentor, { id: Number, name: String }
-    check professional, { id: Match.Maybe(Number), name: Match.Maybe(String) }
+    check professional, Match.Maybe({ id: Number, name: String })
     check available, Boolean
 
     Slots.insert

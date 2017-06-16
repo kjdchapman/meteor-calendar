@@ -6,3 +6,8 @@ Template.timeSelector.helpers
 
   timeZone: ->
     @selectedTimeZone.get()
+
+  slots: ->
+    console.log "slots in time selector"
+    console.log @slots
+
